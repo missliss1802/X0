@@ -5,6 +5,7 @@ window.onload = () => {
     let count0 = document.getElementsByClassName('count0');
     let butX = document.getElementById('butX');
     let but0 = document.getElementById('but0');
+    let wrap = document.getElementsByClassName('wrap');
     let play = '';
     let cX = 0;
     let c0 = 0;
@@ -13,15 +14,16 @@ window.onload = () => {
     butX.addEventListener('click', (e) => {
         play = 'X';
         document.getElementsByClassName('but')[0].innerHTML = '';
+        wrap[0].style.display = 'block'
     })
     but0.addEventListener('click', (e) => {
         play = '0';
         document.getElementsByClassName('but')[0].innerHTML = '';
+        wrap[0].style.display = 'block'
     })
     for (let i = 0; i < col.length; i++) {
         let func = () => {
             arr = arr.filter( el => el != i);
-            console.log(arr)
             play == 'X' ? col[i].innerHTML = 'X' : col[i].innerHTML = '0'
             col[i].innerHTML == 'X' ? res[i] = 1 : res[i] = 0;
             let index = Math.floor(Math.random() * arr.length);
@@ -44,7 +46,6 @@ window.onload = () => {
             col[i].innerHTML == 'X' ? col[arr[index]].innerHTML = '0': col[arr[index]].innerHTML = 'X'
             col[arr[index]].innerHTML == 'X' ? res[arr[index]] = 1 : res[arr[index]] = 0;
             arr = arr.filter( el => el != arr[index]);
-            console.log(arr, res);
             if ((res[1] == 1 && res[2] == 1 && res[0] == 1)
                  || (res[0] == 1 && res[4] == 1 && res[8] == 1) 
                  || (res[0] == 1 && res[3] == 1 && res[6] == 1)
