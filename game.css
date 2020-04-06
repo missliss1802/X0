@@ -79,11 +79,10 @@ p {
 @media screen and (max-width: 500px) {
     .col {
         width: 70px;
-        height: 70px;
+        height: 60px;
         outline: 1px solid white;
         font-size: 30px;
         text-align: center;
-        padding-top: 0;
     }
     .wrap {
         width: 210px;

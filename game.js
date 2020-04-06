@@ -40,7 +40,7 @@ window.onload = () => {
     for (let i = 0; i < col.length; i++) {
         let func = () => {
             arr = arr.filter( el => el != i);
-            play == 'X' ? col[i].innerHTML = 'X' : col[i].innerHTML = '0'
+            play == 'X' && !col[i].innerHTML ? col[i].innerHTML = 'X' : col[i].innerHTML = '0';
             col[i].innerHTML == 'X' ? res[i] = 1 : res[i] = 0;
             let index = Math.floor(Math.random() * arr.length);
             if (!col[arr[index]]) {
