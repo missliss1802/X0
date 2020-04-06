@@ -75,3 +75,20 @@ p {
     font-size: 25px;
     margin: 10px;
 }
+
+@media screen and (max-width: 500px) {
+    .col {
+        width: 70px;
+        height: 70px;
+        outline: 1px solid white;
+        font-size: 30px;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .wrap {
+        width: 210px;
+        height: 210px;
+        outline: 1px solid white;
+        margin: 0 auto;
+    }
+}
