@@ -65,3 +65,13 @@ p {
     text-align: center;
     padding-top: 10px;
 }
+
+.but button {
+    width: 70px;
+    height: 30px;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 25px;
+    margin: 10px;
+}
