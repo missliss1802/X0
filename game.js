@@ -21,6 +21,22 @@ window.onload = () => {
         document.getElementsByClassName('but')[0].innerHTML = '';
         wrap[0].style.display = 'block'
     })
+    const rest = function(str) {
+        end[0].insertAdjacentHTML('afterBegin', `<div class="win"><h3>${str}<h3> <button id="restart">Заново</button></div>`);
+        end[0].style.opacity = '1';
+        end[0].style.zIndex = '2';
+        let restart = document.getElementById('restart');
+        restart.addEventListener('click', (e) => {
+            arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            res = ['0', '0', '0', '0', '0', '0', '0', '0', '0']
+            end[0].style.opacity = '0';
+            end[0].style.zIndex = '-1';
+            end[0].innerHTML = '';
+            for (let j = 0; j < col.length; j++) {
+                col[j].innerHTML = '';
+            }
+        })
+    }
     for (let i = 0; i < col.length; i++) {
         let func = () => {
             arr = arr.filter( el => el != i);
@@ -28,20 +44,7 @@ window.onload = () => {
             col[i].innerHTML == 'X' ? res[i] = 1 : res[i] = 0;
             let index = Math.floor(Math.random() * arr.length);
             if (!col[arr[index]]) {
-                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Ничья<h3> <button id="restart">Заново</button></div>');
-                end[0].style.opacity = '1';
-                end[0].style.zIndex = '2';
-                let restart = document.getElementById('restart');
-                restart.addEventListener('click', (e) => {
-                    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-                    res = ['0', '0', '0', '0', '0', '0', '0', '0', '0']
-                    end[0].style.opacity = '0';
-                    end[0].style.zIndex = '-1';
-                    end[0].innerHTML = '';
-                    for (let j = 0; j < col.length; j++) {
-                        col[j].innerHTML = '';
-                    }
-                })
+                rest('Ничья!');
             }
             col[i].innerHTML == 'X' ? col[arr[index]].innerHTML = '0': col[arr[index]].innerHTML = 'X'
             col[arr[index]].innerHTML == 'X' ? res[arr[index]] = 1 : res[arr[index]] = 0;
@@ -56,20 +59,7 @@ window.onload = () => {
                  || (res[2] == 1 && res[5] == 1 && res[8] == 1)) {
                 cX++;
                 countX[0].innerHTML = cX;
-                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Выиграл "X"!<h3> <button id="restart">Заново</button></div>');
-                end[0].style.opacity = '1';
-                end[0].style.zIndex = '2';
-                let restart = document.getElementById('restart');
-                restart.addEventListener('click', (e) => {
-                    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-                    res = ['0', '0', '0', '0', '0', '0', '0', '0', '0']
-                    end[0].style.opacity = '0';
-                    end[0].style.zIndex = '-1';
-                    end[0].innerHTML = '';
-                    for (let j = 0; j < col.length; j++) {
-                        col[j].innerHTML = '';
-                    }
-                })
+                rest('Выиграл "X"!');
             } else if ((res[1] === 0 && res[2] === 0 && res[0] === 0)
                     || (res[0] === 0 && res[4] === 0 && res[8] === 0) 
                     || (res[0] === 0 && res[3] === 0 && res[6] === 0)
@@ -80,20 +70,7 @@ window.onload = () => {
                     || (res[2] === 0 && res[5] === 0 && res[8] === 0)) {
                 c0++;
                 count0[0].innerHTML = c0;
-                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Выиграл "0"!<h3> <button id="restart">Заново</button></div>');
-                end[0].style.opacity = '1';
-                end[0].style.zIndex = '2';
-                let restart = document.getElementById('restart');
-                restart.addEventListener('click', (e) => {
-                    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-                    res = ['0', '0', '0', '0', '0', '0', '0', '0', '0']
-                    end[0].innerHTML = '';
-                    end[0].style.opacity = '0';
-                    end[0].style.zIndex = '-1';
-                    for (let j = 0; j < col.length; j++) {
-                        col[j].innerHTML = '';
-                    }
-                })
+                rest('Выиграл "0"!');
             }
         }
         col[i].addEventListener('click', func)
