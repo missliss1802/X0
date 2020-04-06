@@ -28,7 +28,7 @@ window.onload = () => {
             col[i].innerHTML == 'X' ? res[i] = 1 : res[i] = 0;
             let index = Math.floor(Math.random() * arr.length);
             if (!col[arr[index]]) {
-                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>no Win<h3> <button id="restart">Restart</button></div>');
+                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Ничья<h3> <button id="restart">Заново</button></div>');
                 end[0].style.opacity = '1';
                 end[0].style.zIndex = '2';
                 let restart = document.getElementById('restart');
@@ -56,7 +56,7 @@ window.onload = () => {
                  || (res[2] == 1 && res[5] == 1 && res[8] == 1)) {
                 cX++;
                 countX[0].innerHTML = cX;
-                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Win "X"<h3> <button id="restart">Restart</button></div>');
+                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Выиграл "X"!<h3> <button id="restart">Заново</button></div>');
                 end[0].style.opacity = '1';
                 end[0].style.zIndex = '2';
                 let restart = document.getElementById('restart');
@@ -80,7 +80,7 @@ window.onload = () => {
                     || (res[2] === 0 && res[5] === 0 && res[8] === 0)) {
                 c0++;
                 count0[0].innerHTML = c0;
-                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Win "0"<h3> <button id="restart">Restart</button></div>');
+                end[0].insertAdjacentHTML('afterBegin', '<div class="win"><h3>Выиграл "0"!<h3> <button id="restart">Заново</button></div>');
                 end[0].style.opacity = '1';
                 end[0].style.zIndex = '2';
                 let restart = document.getElementById('restart');
